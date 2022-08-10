@@ -1,0 +1,14 @@
+#!/usr/bin/env python3.10
+from formatter import format_article
+from get_article import get_random_article
+
+
+def main() -> None:
+    raw_article = get_random_article()
+    formatted_article = format_article(raw_article)
+    print(formatted_article)
+
+
+if __name__ == '__main__':
+    main()
+
