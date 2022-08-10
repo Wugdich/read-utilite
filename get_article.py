@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from exceptions import CantFindTitle, CantFindFirstParagraph, CantFindContents
+import config
 
 
 class Article(NamedTuple):
@@ -15,8 +16,8 @@ class Article(NamedTuple):
 
 def get_random_article() -> Article:
     """Returns random head of article from wikipedia.org."""
-    RANDOM_ARTICLE_URL = 'https://en.wikipedia.org/wiki/Special:Random'
-    response = requests.get(RANDOM_ARTICLE_URL)
+    url = config.RANDOM_ARTICLE_URL
+    response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
     title = _get_title(soup)
     first_paragraph = _get_first_paragraph(soup)
