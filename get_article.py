@@ -9,7 +9,7 @@ import config
 
 class Article(NamedTuple):
     title: str
-    first_paragraph: str
+    paragraph: str
     contents: list[str]
     url: str
 
